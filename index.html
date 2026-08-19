@@ -298,7 +298,7 @@
     if (!daysEl) return;
     var now = new Date();
     var diff = target - now;
-    var days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+    var days = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
     var word = dayWord(days);
     daysEl.textContent = days;
     if (wordEl) wordEl.textContent = word;
