@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horoskop — buncakova.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .horo-card{max-width:640px;margin:0 auto;text-align:center;}
+  .horo-sign{font-size:2.6rem;line-height:1;margin-bottom:6px;}
+  .horo-date{font-size:0.8rem;color:var(--ink-soft);margin-bottom:22px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;}
+  .horo-text{font-weight:700;font-size:1.3rem;line-height:1.5;color:var(--violet-ink);}
+  .horo-lines{margin-top:26px;display:flex;flex-direction:column;gap:12px;text-align:left;}
+  .horo-line{display:flex;gap:12px;font-size:0.98rem;font-weight:600;}
+  .horo-line .tag{flex:none;font-weight:800;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--violet-ink);width:5.2em;}
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="17" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M3.6 13 L1.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M20.4 13 L22.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg></span>
+      buncakova.com
+    </a>
+    <ul class="navlinks">
+      <li><a href="index.html">domov</a></li>
+      <li><a href="kalendar.html">kalendár</a></li>
+      <li><a href="hra.html">hra</a></li>
+      <li><a href="o-mne.html">mimo dráhy</a></li>
+      <li><a href="bun-cha.html">gastro zóna</a></li>
+      <li><a href="horoskop.html" class="active">horoskop</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-head band-violet">
+  <div class="wrap">
+    <span class="eyebrow">denný horoskop</span>
+    <h1>Presne pre teba</h1>
+    <p>Nie generický horoskop z internetu — práca, peniaze, zdravie a láska, ušité presne na Leva.</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="card horo-card">
+        <div class="horo-sign">♌</div>
+        <div class="horo-date" id="horoDate">Lev — dnes</div>
+        <p class="horo-text" id="horoMain">…</p>
+        <div class="horo-lines">
+          <div class="horo-line"><span class="tag">práca</span><span id="horoWork"></span></div>
+          <div class="horo-line"><span class="tag">peniaze</span><span id="horoMoney"></span></div>
+          <div class="horo-line"><span class="tag">zdravie</span><span id="horoHealth"></span></div>
+          <div class="horo-line"><span class="tag">láska</span><span id="horoLove"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <a class="logo" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="17" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M3.6 13 L1.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M20.4 13 L22.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg></span>
+      buncakova.com
+    </a>
+    <span class="foot-note">vizuálny smer · v5</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var MAIN = [
+    "Dnes ťa vesmír posúva dopredu — aj keď to bude vyzerať ako obyčajný utorok.",
+    "Lev v tebe si dnes zaslúži pódium, aj keby to bolo len pódium vo vlastnej kuchyni.",
+    "Hviezdy hovoria: netreba dnes preskočiť nič, čo sa dá pokojne obísť.",
+    "Dnešný deň patrí tebe — zvyšok sveta sa len pridá.",
+    "Energia dňa je vysoká, trpezlivosť o trochu nižšia. Rátaj s tým.",
+    "Dnes je dobrý deň na to, aby si niečo dokončila — hoci by to mala byť len kapitola knihy.",
+    "Vesmír ti dnes odporúča ísť si za svojím tempom, nie za tempom druhých.",
+    "Malý znak zhora: dnes sa oplatí povedať áno aspoň jednej dobrej ponuke.",
+    "Dnes máš náladu na víťazstvá — aj tie malé sa počítajú.",
+    "Hviezdy sú na tvojej strane, aj keby to ráno nevyzeralo tak."
+  ];
+  var WORK = [
+    "dnes dokončíš niečo, čo odkladáš už týždeň — a bude to jednoduchšie, než si myslela.",
+    "šéfovský pohľad zhora ti dnes praje, aj keď to nepovie nahlas.",
+    "jedna e-mailová vojna sa dnes skončí v tvoj prospech.",
+    "netreba dnes riešiť všetko — vyber si tri veci a zvyšok nechaj na zajtra.",
+    "dnešný deň odmení trpezlivosť viac než rýchlosť.",
+    "kolega, ktorému si pomohla minule, si to dnes bude pamätať.",
+    "malý nápad, ktorý ťa napadol pod sprchou, sa dnes oplatí povedať nahlas.",
+    "dnes je dobrý deň prestať kontrolovať mail po siedmej."
+  ];
+  var MONEY = [
+    "drobný výdavok dnes premeníš na dobré rozhodnutie.",
+    "faktúra, na ktorú čakáš, dnes konečne príde.",
+    "dnes nie je deň na veľké nákupy — zajtra možno áno.",
+    "niekto ti dnes vráti niečo, na čo si už zabudla.",
+    "sporiaci účet ti dnes potichu ďakuje za včerajšie rozhodnutie.",
+    "dobrá investícia dnes vyzerá nudne — a to je dobre.",
+    "zľava, na ktorú dnes narazíš, naozaj stojí za to.",
+    "peniaze dnes tečú pokojne, žiadne veľké vlny."
+  ];
+  var HEALTH = [
+    "telo si dnes pýta viac vody než kávy.",
+    "krátka prechádzka dnes urobí viac než ďalšia hodina za stolom.",
+    "dnes je dobrý deň ísť spať o hodinu skôr, než plánuješ.",
+    "chrbát ti dnes pripomína, že strečing nie je len pre iných.",
+    "obed dnes nevynechávaj, aj keby si mala pocit, že nemáš čas.",
+    "hlboký nádych teraz urobí viac než ešte jedna vec na zozname úloh.",
+    "telo ti dnes odpúšťa málo — počúvaj ho o niečo viac.",
+    "dnešný deň si pýta menej kávy a viac poriadneho jedla."
+  ];
+  var LOVE = [
+    "dnes je dobrý deň povedať nahlas, čo si necháva pre seba.",
+    "malé gesto dnes znamená viac než veľké slová.",
+    "niekto na teba dnes myslí častejšie, než tušíš.",
+    "dnešný večer si pýta menej telefónu a viac pozerania si do očí.",
+    "hviezdy dnes radia skúsiť niečo nové — pokojne aj v spálni. Napríklad pozícia Lotos 😉",
+    "objatie dnes vydrží dlhšie, než plánuješ — nechaj ho.",
+    "dnešný deň praje spontánnosti — aj tej večernej.",
+    "hviezdy dnes šepkajú jedno slovo: Kolíska 😉 (áno, aj tá z kamasútry).",
+    "láska sa dnes neschováva za výhovorky o čase.",
+    "dnešná energia je nabitá — využi ju aj mimo bežeckej dráhy 😉 skús napríklad pozíciu Motýľ."
+  ];
+
+  function dayIndex() {
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = now - start;
+    return Math.floor(diff / (1000 * 60 * 60 * 24));
+  }
+  function pick(arr, offset) {
+    var i = (dayIndex() + offset) % arr.length;
+    return arr[i];
+  }
+
+  document.getElementById("horoMain").textContent = pick(MAIN, 0);
+  document.getElementById("horoWork").textContent = pick(WORK, 3);
+  document.getElementById("horoMoney").textContent = pick(MONEY, 5);
+  document.getElementById("horoHealth").textContent = pick(HEALTH, 7);
+  document.getElementById("horoLove").textContent = pick(LOVE, 2);
+
+  var opts = { day: "numeric", month: "long" };
+  document.getElementById("horoDate").textContent =
+    "Lev — " + new Date().toLocaleDateString("sk-SK", opts);
+})();
+</script>
+</body>
+</html>

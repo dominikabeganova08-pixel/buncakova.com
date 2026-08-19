@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimo dráhy — buncakova.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .illus{width:100%;height:140px;margin-bottom:16px;}
+  .photo-frame{
+    border:3px solid var(--ink);overflow:hidden;
+    max-width:420px;border-radius:var(--radius-lg);
+  }
+  .photo-frame img{width:100%;display:block;}
+  .photo-cap{margin-top:14px;font-size:0.92rem;color:var(--ink-soft);max-width:420px;font-weight:600;}
+  .bin-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px;}
+  .bin{display:flex;align-items:center;gap:10px;font-size:0.92rem;font-weight:700;}
+  .bin .dot{width:26px;height:26px;flex:none;border-radius:var(--blob-1);border:2px solid var(--ink);}
+
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  @media (max-width:720px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  .gallery-thumb{
+    position:relative;aspect-ratio:1;overflow:hidden;padding:0;cursor:pointer;
+    border:3px solid var(--ink);border-radius:var(--radius-md);background:none;
+  }
+  .gallery-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.25s ease;}
+  .gallery-thumb:hover img{transform:scale(1.07);}
+  .gallery-thumb:focus-visible{outline:3px solid var(--violet-ink);outline-offset:2px;}
+
+  .lightbox{
+    position:fixed;inset:0;background:rgba(58,10,29,0.9);display:none;
+    align-items:center;justify-content:center;z-index:100;padding:28px;
+  }
+  .lightbox.is-open{display:flex;}
+  .lightbox img{max-width:90vw;max-height:86vh;border:3px solid var(--paper);border-radius:16px;display:block;}
+  .lightbox-close{
+    position:absolute;top:20px;right:24px;background:var(--orange);color:var(--ink);
+    border:3px solid var(--paper);border-radius:999px;width:44px;height:44px;
+    font-size:1.3rem;font-weight:800;cursor:pointer;line-height:1;
+  }
+  .lightbox-nav{
+    position:absolute;top:50%;transform:translateY(-50%);background:var(--orange);color:var(--ink);
+    border:3px solid var(--paper);border-radius:999px;width:48px;height:48px;font-size:1.4rem;font-weight:800;cursor:pointer;
+  }
+  .lightbox-prev{left:20px;}
+  .lightbox-next{right:20px;}
+  @media (max-width:640px){.lightbox-nav{width:38px;height:38px;font-size:1.1rem;}}
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="17" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M3.6 13 L1.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M20.4 13 L22.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg></span>
+      buncakova.com
+    </a>
+    <ul class="navlinks">
+      <li><a href="index.html">domov</a></li>
+      <li><a href="kalendar.html">kalendár</a></li>
+      <li><a href="hra.html">hra</a></li>
+      <li><a href="o-mne.html" class="active">mimo dráhy</a></li>
+      <li><a href="bun-cha.html">gastro zóna</a></li>
+      <li><a href="horoskop.html">horoskop</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-head band-orange">
+  <div class="wrap">
+    <span class="eyebrow">osobné</span>
+    <h1>Mimo dráhy</h1>
+    <p>Život vie byť intenzívny, ale aj pestrý a farebný — a pár vecí, čo ma držia pri zemi aj mimo behu.</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Fotogaléria</h2>
+        <p>Život vie byť intenzívny, ale aj pestrý a farebný — tu ti vyberáme zopár momentov, na ktoré radi spomíname.</p>
+      </div>
+      <div class="gallery-grid">
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-01.jpg" aria-label="Otvoriť fotku 1"><img src="assets/gallery/gallery-01.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-02.jpg" aria-label="Otvoriť fotku 2"><img src="assets/gallery/gallery-02.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-03.jpg" aria-label="Otvoriť fotku 3"><img src="assets/gallery/gallery-03.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-04.jpg" aria-label="Otvoriť fotku 4"><img src="assets/gallery/gallery-04.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-05.jpg" aria-label="Otvoriť fotku 5"><img src="assets/gallery/gallery-05.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-06.jpg" aria-label="Otvoriť fotku 6"><img src="assets/gallery/gallery-06.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-07.jpg" aria-label="Otvoriť fotku 7"><img src="assets/gallery/gallery-07.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-08.jpg" aria-label="Otvoriť fotku 8"><img src="assets/gallery/gallery-08.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-09.jpg" aria-label="Otvoriť fotku 9"><img src="assets/gallery/gallery-09.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-10.jpg" aria-label="Otvoriť fotku 10"><img src="assets/gallery/gallery-10.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/atlet.jpg" aria-label="Otvoriť fotku, na ktorú je hrdá"><img src="assets/atlet.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-11.jpg" aria-label="Otvoriť fotku 11"><img src="assets/gallery/gallery-11.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-12.jpg" aria-label="Otvoriť fotku 12"><img src="assets/gallery/gallery-12.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-13.jpg" aria-label="Otvoriť fotku 13"><img src="assets/gallery/gallery-13.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-14.jpg" aria-label="Otvoriť fotku 14"><img src="assets/gallery/gallery-14.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-15.jpg" aria-label="Otvoriť fotku 15"><img src="assets/gallery/gallery-15.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-16.jpg" aria-label="Otvoriť fotku 16"><img src="assets/gallery/gallery-16.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-17.jpg" aria-label="Otvoriť fotku 17"><img src="assets/gallery/gallery-17.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-18.jpg" aria-label="Otvoriť fotku 18"><img src="assets/gallery/gallery-18.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-19.jpg" aria-label="Otvoriť fotku 19"><img src="assets/gallery/gallery-19.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-20.jpg" aria-label="Otvoriť fotku 20"><img src="assets/gallery/gallery-20.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-21.jpg" aria-label="Otvoriť fotku 21"><img src="assets/gallery/gallery-21.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-22.jpg" aria-label="Otvoriť fotku 22"><img src="assets/gallery/gallery-22.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-23.jpg" aria-label="Otvoriť fotku 23"><img src="assets/gallery/gallery-23.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-24.jpg" aria-label="Otvoriť fotku 24"><img src="assets/gallery/gallery-24.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-25.jpg" aria-label="Otvoriť fotku 25"><img src="assets/gallery/gallery-25.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-26.jpg" aria-label="Otvoriť fotku 26"><img src="assets/gallery/gallery-26.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-27.jpg" aria-label="Otvoriť fotku 27"><img src="assets/gallery/gallery-27.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-28.jpg" aria-label="Otvoriť fotku 28"><img src="assets/gallery/gallery-28.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-29.jpg" aria-label="Otvoriť fotku 29"><img src="assets/gallery/gallery-29.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-30.jpg" aria-label="Otvoriť fotku 30"><img src="assets/gallery/gallery-30.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-31.jpg" aria-label="Otvoriť fotku 31"><img src="assets/gallery/gallery-31.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-32.jpg" aria-label="Otvoriť fotku 32"><img src="assets/gallery/gallery-32.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-33.jpg" aria-label="Otvoriť fotku 33"><img src="assets/gallery/gallery-33.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-34.jpg" aria-label="Otvoriť fotku 34"><img src="assets/gallery/gallery-34.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-35.jpg" aria-label="Otvoriť fotku 35"><img src="assets/gallery/gallery-35.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-36.jpg" aria-label="Otvoriť fotku 36"><img src="assets/gallery/gallery-36.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-37.jpg" aria-label="Otvoriť fotku 37"><img src="assets/gallery/gallery-37.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-38.jpg" aria-label="Otvoriť fotku 38"><img src="assets/gallery/gallery-38.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-39.jpg" aria-label="Otvoriť fotku 39"><img src="assets/gallery/gallery-39.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-40.jpg" aria-label="Otvoriť fotku 40"><img src="assets/gallery/gallery-40.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-41.jpg" aria-label="Otvoriť fotku 41"><img src="assets/gallery/gallery-41.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-42.jpg" aria-label="Otvoriť fotku 42"><img src="assets/gallery/gallery-42.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-43.jpg" aria-label="Otvoriť fotku 43"><img src="assets/gallery/gallery-43.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-44.jpg" aria-label="Otvoriť fotku 44"><img src="assets/gallery/gallery-44.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-45.jpg" aria-label="Otvoriť fotku 45"><img src="assets/gallery/gallery-45.jpg" loading="lazy" alt=""></button>
+        <button class="gallery-thumb" data-src="assets/gallery/gallery-46.jpg" aria-label="Otvoriť fotku 46"><img src="assets/gallery/gallery-46.jpg" loading="lazy" alt=""></button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="card tint-magenta" style="max-width:720px;">
+        <p style="font-size:1.05rem; font-weight:700; line-height:1.5;">Takýto pestrý a nabitý život si ale vyžaduje aj poriadny oddych a výživu — preto by sme ti chceli pripomenúť pár vecí, ktoré sa oplatí dodržiavať. A hlavne — máme ťa radi, a preto ti to pripomíname. ❤️</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Spánok & výživa</h2>
+        <p>Pár vecí, ktoré si opakujem, keď telo potrebuje viac než len ďalší tréning.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card tint-pink">
+          <h3 style="font-size:1.2rem;margin-bottom:14px;">Spánok</h3>
+          <ul class="recipe-list">
+            <li><span class="n">•</span>Rovnaký čas na spanie aj vstávanie — aj cez víkend.</li>
+            <li><span class="n">•</span>Posledná hodina bez telefónu, radšej kniha.</li>
+            <li><span class="n">•</span>Izba chladnejšia a tmavšia, než by si čakala.</li>
+            <li><span class="n">•</span>Kofeín naposledy okolo obeda.</li>
+            <li><span class="n">•</span>Krátka večerná prechádzka pomáha viac než ďalší seriál.</li>
+            <li><span class="n">•</span>Práca počká aj do rána — spánok sa dobehnúť nedá.</li>
+            <li><span class="n">•</span>Notifikácie z práce večer pokojne stíš — nič nezhorí.</li>
+            <li><span class="n">•</span>Ak si dala len pár hodín, zajtra to dobehni skôr spánkom, nie ďalšou kávou.</li>
+          </ul>
+        </div>
+        <div class="card tint-orange">
+          <h3 style="font-size:1.2rem;margin-bottom:14px;">Stravovanie</h3>
+          <ul class="recipe-list">
+            <li><span class="n">•</span>Obed nie je voliteľný, aj keď je deň nabitý.</li>
+            <li><span class="n">•</span>Zelenina a bielkoviny, nielen tretia káva.</li>
+            <li><span class="n">•</span>Desiata v taške ťa zachráni pred zlým rozhodnutím o 15:00.</li>
+            <li><span class="n">•</span>Voda popri káve — aspoň toľko, koľko kávy.</li>
+            <li><span class="n">•</span>Jedno poriadne teplé jedlo denne, nie len niečo "za behu".</li>
+          </ul>
+        </div>
+        <div class="card tint-violet">
+          <h3 style="font-size:1.2rem;margin-bottom:14px;">Výživové doplnky</h3>
+          <ul class="recipe-list">
+            <li><span class="n">•</span>Horčík na regeneráciu svalov po tréningu.</li>
+            <li><span class="n">•</span>Vitamín D, hlavne cez zimu.</li>
+            <li><span class="n">•</span>Omega-3 pre kĺby a srdce.</li>
+            <li><span class="n">•</span>Elektrolyty na dlhé behy a horúce dni.</li>
+            <li><span class="n">•</span>Železo pri väčšej únave — najprv si to ale over krvným testom.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <a class="logo" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="17" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M3.6 13 L1.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M20.4 13 L22.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg></span>
+      buncakova.com
+    </a>
+    <span class="foot-note">vizuálny smer · v5</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Zavrieť">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Predchádzajúca fotka">‹</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Ďalšia fotka">›</button>
+</div>
+
+<script>
+(function () {
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll(".gallery-thumb"));
+  if (!thumbs.length) return;
+  var lightbox = document.getElementById("lightbox");
+  var img = document.getElementById("lightboxImg");
+  var current = 0;
+
+  function open(i) {
+    current = i;
+    img.src = thumbs[current].dataset.src;
+    lightbox.classList.add("is-open");
+  }
+  function close() {
+    lightbox.classList.remove("is-open");
+    img.src = "";
+  }
+  function step(delta) {
+    current = (current + delta + thumbs.length) % thumbs.length;
+    img.src = thumbs[current].dataset.src;
+  }
+
+  thumbs.forEach(function (t, i) {
+    t.addEventListener("click", function () { open(i); });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", close);
+  document.getElementById("lightboxPrev").addEventListener("click", function () { step(-1); });
+  document.getElementById("lightboxNext").addEventListener("click", function () { step(1); });
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) close();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!lightbox.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+})();
+</script>
+</body>
+</html>

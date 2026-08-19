@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atletický kalendár — buncakova.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="17" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M3.6 13 L1.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M20.4 13 L22.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg></span>
+      buncakova.com
+    </a>
+    <ul class="navlinks">
+      <li><a href="index.html">domov</a></li>
+      <li><a href="kalendar.html" class="active">kalendár</a></li>
+      <li><a href="hra.html">hra</a></li>
+      <li><a href="o-mne.html">mimo dráhy</a></li>
+      <li><a href="bun-cha.html">gastro zóna</a></li>
+      <li><a href="horoskop.html">horoskop</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-head band-violet">
+  <div class="wrap">
+    <span class="eyebrow">SK · CZ · HU</span>
+    <h1>Atletický kalendár</h1>
+    <p>Preteky, mítingy a majstrovstvá na Slovensku, v Česku a v Maďarsku — nech nič nezmešká.</p>
+  </div>
+</header>
+<div class="pattern-strip pat-grid"></div>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="Krajina">
+        <button class="tab" role="tab" aria-selected="true" data-country="sk">Slovensko</button>
+        <button class="tab" role="tab" aria-selected="false" data-country="cz">Česko</button>
+        <button class="tab" role="tab" aria-selected="false" data-country="hu">Maďarsko</button>
+      </div>
+      <div class="event-list" id="eventList"></div>
+      <p class="cal-caption">* reálne termíny z oficiálnych atletických zväzov (SAZ, ČAS, MASZ) <span class="tag-demo">aktuálne k 18. 8. 2026</span> — nie je to živý dátový kanál, takže si to raz za čas skontrolujeme a doplníme.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <a class="logo" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="17" cy="14" r="3.4" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M3.6 13 L1.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M20.4 13 L22.5 10.5" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg></span>
+      buncakova.com
+    </a>
+    <span class="foot-note">vizuálny smer · v4</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var events = {
+    sk: [
+      { d: "29", m: "AUG", name: "Majstrovstvá Slovenska družstiev", place: "Bratislava" },
+      { d: "04", m: "OKT", name: "Medzinárodný maratón mieru (103. ročník)", place: "Košice" }
+    ],
+    cz: [
+      { d: "29", m: "AUG", name: "Mistrovství ČR U22 v atletice", place: "Tábor" },
+      { d: "05", m: "SEP", name: "Mistrovství ČR družstev", place: "Karlovy Vary" }
+    ],
+    hu: [
+      { d: "11", m: "SEP", name: "World Athletics Ultimate Championship", place: "Budapešť" }
+    ]
+  };
+  var listEl = document.getElementById("eventList");
+  var tabs = document.querySelectorAll(".tab");
+  function renderEvents(country) {
+    listEl.innerHTML = "";
+    events[country].forEach(function (ev) {
+      var row = document.createElement("div");
+      row.className = "event";
+      row.innerHTML =
+        '<div class="event-date"><span class="d">' + ev.d + '</span><span class="m">' + ev.m + '</span></div>' +
+        '<div><div class="event-name">' + ev.name + '</div><div class="event-place">' + ev.place + '</div></div>';
+      listEl.appendChild(row);
+    });
+  }
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      tabs.forEach(function (t) { t.setAttribute("aria-selected", "false"); });
+      tab.setAttribute("aria-selected", "true");
+      renderEvents(tab.dataset.country);
+    });
+  });
+  renderEvents("sk");
+})();
+</script>
+</body>
+</html>
