@@ -8,6 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+  if (!sessionStorage.getItem("buncakova_logged")) {
+    window.location.href = "login.html";
+  }
+</script>
 </head>
 <body>
 
@@ -32,6 +37,7 @@
       <li><a href="o-mne.html">mimo dráhy</a></li>
       <li><a href="bun-cha.html">gastro zóna</a></li>
       <li><a href="horoskop.html">horoskop</a></li>
+      <li><a href="kontakt.html">kontakt</a></li>
     </ul>
   </div>
 </nav>
@@ -56,7 +62,7 @@
         </div>
         <h1>Ahoj,<span class="script">Vlaďa!</span></h1>
         <p class="hero-shout" id="heroShout"></p>
-        <p class="hero-sub">Tvoj vlastný kút internetu — trochu behu, trochu snov, kúsok domova a pár dní na odpočítavanie.</p>
+        <p class="hero-sub">Toto je Tvoj vlastný kút internetu — trocha prekážok, spomienok, jedla a zábavy. Enjoy!</p>
       </div>
       <div style="position:relative;">
         <div class="hero-portrait">
@@ -134,6 +140,11 @@
           <h3>Horoskop</h3>
           <p>Denný horoskop pre Leva, ušitý presne na teba.</p>
         </a>
+        <a class="tile tile--pink" href="kontakt.html">
+          <span class="icon-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"/></svg></span>
+          <h3>Kontakt</h3>
+          <p>Napíš nám správu — vždy radi počujeme od teba!</p>
+        </a>
       </div>
     </div>
   </section>
@@ -153,7 +164,6 @@
       </span>
       buncakova.com
     </a>
-    <span class="foot-note">vizuálny smer · v5</span>
   </div>
 </footer>
 
@@ -256,11 +266,7 @@
   renderNameday();
 
   var OTHER_DAY_SHOUTS = [
-    "✨ Dnes možno nie je Svetový deň Vladi Bunčákovej — ale pokojne môže byť, veď je vďaka Tebe. ✨",
-    "💛 Každý deň môže byť Svetový deň — stačí, že si v ňom Ty. 💛",
-    "✨ 21. august má na to síce papiere, ale úprimne — každý deň s Tebou je trochu svetový. ✨",
-    "🌍 Svetové dni si netreba nechávať len na kalendár — dnešok si to tiež zaslúži. 🌍",
-    "💛 Nie je práve 21. august, ale to nič nemení na tom, že dnešok je vďaka Tebe lepší. 💛"
+    "💛 Každý deň môže byť Svetový deň — stačí, že si v ňom Ty. 💛"
   ];
   function renderHeroShout() {
     var el = document.getElementById("heroShout");

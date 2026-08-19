@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script src="auth.js"></script><style>
+<style>
   .illus{width:100%;height:140px;margin-bottom:16px;}
   .photo-frame{
     border:3px solid var(--ink);overflow:hidden;
@@ -71,7 +71,6 @@
       <li><a href="o-mne.html" class="active">mimo dráhy</a></li>
       <li><a href="bun-cha.html">gastro zóna</a></li>
       <li><a href="horoskop.html">horoskop</a></li>
-      <li><a href="kontakt.html">kontakt</a></li>
     </ul>
   </div>
 </nav>
@@ -208,7 +207,7 @@
         </svg></span>
       buncakova.com
     </a>
-    
+    <span class="foot-note">vizuálny smer · v5</span>
   </div>
 </footer>
 

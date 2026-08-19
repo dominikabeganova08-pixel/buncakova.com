@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>buncakova.com — Vstup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --orange: #E3E14A;
+    --violet: #8B5FD3;
+    --violet-ink: #5A3A7A;
+    --pink: #E9A6D9;
+    --ink: #3A0A1D;
+    --paper: #FFF8F5;
+  }
+
+  body {
+    font-family: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--pink) 50%, var(--violet) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .login-container {
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 24px;
+    padding: 56px 48px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(58, 10, 29, 0.15);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--violet);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-mark svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logo-text {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    color: rgba(58, 10, 29, 0.7);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    font-size: 1rem;
+    font-family: 'Archivo', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    transition: all 0.2s ease;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--violet);
+    box-shadow: 0 0 0 3px rgba(139, 95, 211, 0.1);
+  }
+
+  button {
+    width: 100%;
+    padding: 16px;
+    background: var(--orange);
+    border: 3px solid var(--ink);
+    border-radius: 16px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    background: var(--violet);
+    color: var(--paper);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(58, 10, 29, 0.15);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  .error {
+    color: #D73E7A;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-weight: 600;
+    display: none;
+  }
+
+  .error.show {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 40px 24px;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    input, button {
+      padding: 12px 14px;
+      font-size: 0.95rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="7" cy="14" r="3.4" stroke="#FFF8F5" stroke-width="2"/>
+        <circle cx="17" cy="14" r="3.4" stroke="#FFF8F5" stroke-width="2"/>
+        <path d="M10.4 13.2 C11.2 11.6 12.8 11.6 13.6 13.2" stroke="#FFF8F5" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M3.6 13 L1.5 10.5" stroke="#FFF8F5" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M20.4 13 L22.5 10.5" stroke="#FFF8F5" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">buncakova.com</span>
+  </div>
+
+  <h1>Ahoj!</h1>
+  <p class="subtitle">Zadaj heslo a vstaň do Vladinho sveta.</p>
+
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="password">Heslo</label>
+      <input type="password" id="password" name="password" autofocus required>
+      <div class="error" id="error">❌ Nesprávne heslo. Skúsime znova!</div>
+    </div>
+    <button type="submit">Vstúpiť</button>
+  </form>
+</div>
+
+<script>
+  const correctPassword = "buncakova.com";
+  const form = document.getElementById("loginForm");
+  const passwordInput = document.getElementById("password");
+  const errorMsg = document.getElementById("error");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const password = passwordInput.value;
+
+    if (password === correctPassword) {
+      // Ulož do sessionStorage že je prihlaséný
+      sessionStorage.setItem("buncakova_logged", "true");
+      window.location.href = "index.html";
+    } else {
+      errorMsg.classList.add("show");
+      passwordInput.value = "";
+      passwordInput.focus();
+      setTimeout(() => errorMsg.classList.remove("show"), 3000);
+    }
+  });
+</script>
+</body>
+</html>
